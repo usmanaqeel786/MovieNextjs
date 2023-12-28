@@ -5,6 +5,7 @@ const Layout = ({ children }) => (
     initial={{ opacity: 0 }}
     whileInView={{ opacity: 1 }}
     viewport={{ once: true }}
+    className="relative"
   >
     {children}
   </motion.div>

@@ -47,12 +47,6 @@ const Profile = () => {
         >
           Logout
         </button>
-        <div className="flex flex-col space-y-2 m-2 w-80 ">
-          <Accordion
-            data={DUMMY}
-            Content={() => <ContentPlaceholder data={DUMMY} />}
-          />
-        </div>
       </div>
     </Layout>
   );

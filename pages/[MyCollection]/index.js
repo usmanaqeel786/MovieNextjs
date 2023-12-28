@@ -1,9 +1,11 @@
 import CollectionTable from "@/Components/CollectionTable";
 import EmptyRecord from "@/Components/EmptyRecord";
 import GenLoader from "@/Components/GenLoader";
+import IconLabel from "@/Components/IconLabel";
 import Layout from "@/Components/Layout";
 import { GET_COLLECTION } from "@/lib/endpoints";
 import SetMyCollectionAction from "@/Store/MyCollection/SetMyCollectionAction";
+import { PlusCircleIcon } from "@heroicons/react/outline";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
@@ -14,7 +16,6 @@ const MyCollection = ({ loading, myCollection }) => {
   const myCollectionsData = useSelector(
     (state) => state.collectionn.mycollection
   );
-  const userData = useSelector((state) => state.userr.user);
   const router = useRouter();
 
   useEffect(() => {
@@ -25,10 +26,22 @@ const MyCollection = ({ loading, myCollection }) => {
 
   if (myCollectionsData?.length === 0)
     return (
-      <EmptyRecord
-        title={"No Collections"}
-        subtext={"you can add collections from details sections any time"}
-      />
+      <div className="flex flex-col justify-center items-center">
+        <EmptyRecord
+          title={"No Movies"}
+          subtext={"you can add movies from here any time"}
+        />
+        <div className="py-5">
+          <IconLabel
+            Icon={PlusCircleIcon}
+            title={"Add your first movie"}
+            isClick
+            onClick={() => {
+              router.push("/AddMovie");
+            }}
+          />
+        </div>
+      </div>
     );
 
   return (
@@ -38,6 +51,16 @@ const MyCollection = ({ loading, myCollection }) => {
         <meta name="description" content="Movie Details" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <div className="mx-10 w-52">
+        <IconLabel
+          Icon={PlusCircleIcon}
+          title={"Add a New Movie"}
+          isClick
+          onClick={() => {
+            router.push("/AddMovie");
+          }}
+        />
+      </div>
       <div className="px-4 my-10 sm:grid grid-cols-3 md:grid-cols-4 xl:grid-cols-6 3xl:flex justify-center flex-wrap">
         {myCollectionsData?.map((item, index) => (
           <CollectionTable key={index} item={item} index={index} />

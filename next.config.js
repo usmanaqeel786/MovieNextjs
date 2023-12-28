@@ -10,6 +10,8 @@ const nextConfig = {
       "www.supernova-colosseum.hr",
       "www.metrolibrary.org",
       "static.vecteezy.com",
+      "localhost",
+      "tailwind-psi.vercel.app",
     ],
   },
   reactStrictMode: true,

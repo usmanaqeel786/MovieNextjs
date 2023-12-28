@@ -1,3 +1,4 @@
+import { BASE_URI } from "@/lib/constants";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
@@ -12,13 +13,13 @@ const CollectionTable = ({ item }) => {
       className=" group cursor-pointer p-2 px-3 transition duration-200 ease-in transform sm:hover:scale-105 hover:z-50"
       onClick={() => {
         router.push(
-          `/movieDetails/${item?.id}?number=${userName.number}&tab=reviews`
+          `/AddMovie/?isEdit=true&img=${item?.imgUrl}&name=${item?.title}&pDate=${item?.createAt}`
         );
       }}
     >
       <div className="relative">
         <Image
-          src={item?.imgUrl}
+          src={BASE_URI + item?.imgUrl}
           height={1080}
           width={1920}
           className="rounded-md rounded-b-none"

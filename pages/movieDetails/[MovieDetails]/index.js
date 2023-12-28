@@ -203,7 +203,7 @@ const movieDetails = ({
             <p className="lg:text-[18px] text-[14px] px-5 font-light text-justify ">
               {results.overview}
             </p>
-            <div className="p-4">
+            {/* <div className="p-4">
               {!validateCollectionItem() ? (
                 <IconLabel
                   Icon={PlusCircleIcon}
@@ -219,7 +219,7 @@ const movieDetails = ({
               ) : (
                 <Success title={"Added to Collection"} />
               )}
-            </div>
+            </div> */}
             <div className="flex px-6 scrollbar-hide items-center space-x-5 p-2 overflow-auto">
               <IconLabel Icon={TagIcon} />
               {results?.genres?.map((item, index) => (

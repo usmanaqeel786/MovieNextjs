@@ -23,10 +23,10 @@ const Header = () => {
   // console.log(router);
   if (!userData)
     return (
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center p-3">
         <Image
           src={require("../assets/hulu-white.png")}
-          width={450}
+          width={400}
           height={200}
           alt="branding"
           className="items-center justify-center self-center opacity-90"
@@ -35,7 +35,7 @@ const Header = () => {
     );
   return (
     <header className="flex flex-col sm:flex-row m-0 mt-4 ml-10 justify-between items-center h-auto">
-      <div className="flex flex-grow justify-evenly max-w-2xl">
+      <div className="flex flex-grow justify-between sm:max-w-full md:max-w-2xl  px-5">
         {router.pathname !== "/" && (
           <ChevronLeftIcon
             className="h-8 mt-1 absolute left-7 hover:text-gray-100 cursor-pointer mr-10 hover:bg-amber-500 transition rounded-full shadow-xl p-1"
@@ -62,7 +62,7 @@ const Header = () => {
           onClick={() => router.push({ pathname: "/market" })}
         />
         <HeaderItems
-          title="COLLECTIONS"
+          title="MY MOVIES"
           Icon={CollectionIcon}
           onClick={() => router.push({ pathname: `/${userData.number}` })}
         />
